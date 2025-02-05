@@ -44,4 +44,38 @@ Saída <br>
 
 ![exemplo](../IMG/sizeof_exemplo1.png)
 
-Repare que o tamanho do tipo int possui 4 bytes de tamanho e de acordo com as [unidades de medida](./unidades%20de%20medidas.md) esse tipo de dado consome 32 bits de espaço em memória 
+Repare que o tamanho do tipo int possui 4 bytes de tamanho e de acordo com as [unidades de medida](./unidades%20de%20medidas.md) esse tipo de dado consome 32 bits de espaço em memória
+<br>
+
+Como foi dito anteriormente, `sizeof` retorna `size_t` então podemos usar variaveis para guardar o tamanho de algo:
+~~~c
+#include <stdio.h>
+
+int main() {
+    int x;
+    size_t tamanho_x = sizeof(x);
+    printf("O tamanho de x é %zu bytes\n", tamanho_x);
+    return 0;
+}
+~~~
+
+
+### DESCOBRINDO TAMANHO DE UM ARRAY
+
+Em linguagem C normalmente é usado essa expressão para calcular o número de elementos de um array:
+~~~c
+sizeof(array) / sizeof(array[0])
+~~~
+
+Na prática ficaria assim:
+
+~~~c
+#include <stdio.h>
+
+int main() {
+    int numeros[] = {1, 2, 3, 4, 5};
+    printf("Tamanho do array: %zu bytes\n", sizeof(numeros));
+    printf("Número de elementos: %zu\n", sizeof(numeros) / sizeof(numeros[0]));
+    return 0;
+}
+~~~
