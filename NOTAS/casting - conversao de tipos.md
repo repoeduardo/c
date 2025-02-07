@@ -32,3 +32,8 @@ int main() {
 
 ## CUIDADOS 
 
+**PERDA DE DADOS:** Converter de float para int *trunca* valores decimais; Converter de int para char pode causar estouro se o valor for maior que 255; Conversões de tipos maiores para menores podem causar perda de precisão ou dados (por exemplo, double para int).
+
+**PONTEIROS:** Casting entre ponteiros pode ser perigoso se não for feito com compreensão completa do que está sendo convertido, especialmente em contextos de alinhamento de memória ou tipos incompatíveis. Converter um tipo errado pode causar comportamento indefinido.
+
+**STRINGS:** Em algumas situações, considere usar funções de conversão como ``atoi``, ``atof``, ou ``strtod`` para conversões de strings para números, que são mais seguras e menos propensas a erros.
