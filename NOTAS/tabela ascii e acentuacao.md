@@ -61,3 +61,29 @@ Você já deve ter percebido o que está acontecendo. O nosso programa na verdad
 ![exemplo3 ascii](../IMG/ascii_exe03.png)
 https://pt.wikipedia.org/wiki/ASCII
 
+
+## RESOLVENDO O PROBLEMA DA ACENTUAÇÃO
+
+
+Se você prestou atenção, na tabela padrão ASCII não existe acentuação. Para conseguirmos usar a acentuação precisamos usar uma versão extendida da tabela ASCII que você pode ver através desse [website](https://www.ascii-code.com/pt). 
+
+Em seu programa inclua a biblioteca `<locale.h>` e em seguida adicione alguma dessas linhas abaixo
+
+~~~c
+setlocale(LC_ALL, NULL); // padrão da linguagem C
+setlocale(LC_ALL, ""); // padrão do sistema operacional
+setlocale(LC_ALL, "Portuguese"); // Português Brasileiro
+~~~
+
+Por exemplo
+
+~~~~c
+#include <stdio.h>
+#include <locale.h>
+
+int main(int argc, char const *argv[]) {
+  setlocale(LC_ALL, "Portuguese");
+  printf("Acentuação \n");
+  return 0;
+}
+~~~~
