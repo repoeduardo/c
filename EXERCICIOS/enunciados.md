@@ -173,11 +173,11 @@ pontos no sistema cartesiano. Para cada ponto escrever o quadrante a que ele per
 será encerrado quando pelo menos uma de duas coordenadas for NULA (nesta situação sem 
 escrever mensagem alguma).
 Exemplo de entrada:
-2 2
-3 -2
--8 -1
--7 1
-0 2
+    2 2
+    3 -2
+    -8 -1
+    -7 1
+    0 2
 Exemplo de saída:
     primeiro
     quarto
@@ -194,16 +194,17 @@ anterior. Crie um programa para calcular o total de grãos de trigo que o monge 
 Restrições:
 → A instrução “printf” pode ser utilizada no máximo 2 vezes;
 → O \n para saltar linha pode ser utilizado no máximo 1 vez.
-********************
-********************
-********************
-********************
-********************
-********************
-********************
-********************
-********************
-********************
+
+    ********************
+    ********************
+    ********************
+    ********************
+    ********************
+    ********************
+    ********************
+    ********************
+    ********************
+    ********************
 
 
 039. Chico tem 1,50 metro e cresce 2 centímetros por ano, enquanto Zé tem 1,10 metro e cresce 3 
@@ -214,41 +215,41 @@ para que Zé seja maior que Chico.
 Restrições:
 → A instrução “printf” pode ser utilizada no máximo 2 vezes;
 → O \n para saltar linha pode ser utilizado no máximo 2 vezes.
-*
-**
-***
-****
-*****
-******
-*******
-********
+    *
+    **
+    ***
+    ****
+    *****
+    ******
+    *******
+    ********
 
 041. Você deve fazer um programa que apresente a sequência conforme o exemplo abaixo.
-I=1 J=7
-I=1 J=6
-I=1 J=5
-I=3 J=9
-I=3 J=8
-I=3 J=7
-I=5 J=11
-I=5 J=10
-I=5 J=9
-...
-I=9 J=15
-I=9 J=14
-I=9 J=13
+    I=1 J=7
+    I=1 J=6
+    I=1 J=5
+    I=3 J=9
+    I=3 J=8
+    I=3 J=7
+    I=5 J=11
+    I=5 J=10
+    I=5 J=9
+    ...
+    I=9 J=15
+    I=9 J=14
+    I=9 J=13
 
 042. Escreva um programa que leia dois valores X e Y. A seguir, mostre uma sequência de 1 até Y, 
 passando para a próxima linha a cada X números.
 Exemplo de entrada:
-3 99
+    3 99
 Exemplo de saída:
-1 2 3
-4 5 6
-7 8 9
-10 11 12
-...
-97 98 99
+    1 2 3
+    4 5 6
+    7 8 9
+    10 11 12
+    ...
+    97 98 99
 
 043. Escreva um programa para ler as notas da primeira e da segunda avaliação de um aluno. Calcule
 e imprima a média semestral. O programa deverá aceitar apenas notas válidas no intervalo [0,10]. 
