@@ -4,7 +4,7 @@ As funções ``rand`` e ``srand`` em C pertencem à biblioteca padrão `<stdlib.
 
 ## FUNÇÃO RAND( )
 
-A função ``rand()`` gera um número inteiro pseudoaleatório no intervalo de 0 até RAND_MAX, uma constante definida em <stdlib.h> (geralmente pelo menos 32767, mas pode ser maior dependendo da implementação). 
+A função ``rand()`` gera um número inteiro pseudoaleatório no intervalo de 0 até `RAND_MAX`, uma constante definida em <stdlib.h> (geralmente pelo menos 32767, mas pode ser maior dependendo da implementação). 
 
 Sua sintaxe é da seguinte forma
 
@@ -18,7 +18,5 @@ A sequência é determinística, ou seja, se você iniciar com a mesma "semente"
     Em resumo, toda vez que você executar o seu programa os números aleatórios sempre serão os mesmos. Pois são gerados a partir da mesma seed.
 
 Para resolver isso, podemos usar a função `srand()`
-
-## FUNÇÃO SRAND( )
 
 
