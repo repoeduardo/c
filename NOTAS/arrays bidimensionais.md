@@ -36,3 +36,28 @@ Ou parcialmente (os elementos não especificados são preenchidos com 0)
 ~~~c
 int matriz[2][3] = {{1, 2}, {4}}; // Resultado: {{1, 2, 0}, {4, 0, 0}}
 ~~~
+
+
+Exemplo prático:
+
+~~~c
+#include <stdio.h>
+
+int main() {
+    int matriz[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    
+    // Imprimindo a matriz
+    for (int linha = 0; linha < 3; linha++) {
+        for (int coluna = 0; coluna < 3; coluna++) {
+            printf("%d ", matriz[linha][coluna]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+~~~
