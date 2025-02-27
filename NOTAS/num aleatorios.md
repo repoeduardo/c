@@ -19,4 +19,6 @@ A sequência é determinística, ou seja, se você iniciar com a mesma "semente"
 
 Para resolver isso, podemos usar a função `srand()`
 
+## FUNÇÃO SRAND( )
+
 
