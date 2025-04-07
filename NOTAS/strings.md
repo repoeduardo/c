@@ -85,3 +85,12 @@ scanf(" %19[^\n]", fruit);
 
 Onde:
 `%19[^\n]` permite que o `scanf()` leia até o usuário digitar Enter e consiga ler no máximo até 19 caracteres, sendo que sobrará um espaço para o carectere null (por isso mesmo que tenha sido declarado 20 é especifícado 19)
+
+### FGETS
+
+A função `fgets()` foi criada para ler arquivos. Contudo, é bastante versátil e nos permite ler a entrada do buffer padrão do teclado (nesse caso o `stdin`). O modo de usar:
+
+~~~c
+char country[51];
+fgets(country, 51, stdin); // parâmetros: variavel,tamanho,stdin
+~~~
