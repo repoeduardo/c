@@ -94,3 +94,108 @@ A função `fgets()` foi criada para ler arquivos. Contudo, é bastante versáti
 char country[51];
 fgets(country, 51, stdin); // parâmetros: variavel,tamanho,stdin
 ~~~
+
+
+## IDENTIFICAR O TAMANHO DE UM STRING
+
+O objetivo é identificar a quantidade de caracteres que um String possui. Quando é definido um vetor de caracteres como esse: `char name[25];` o último caractere sempre será `\0` isso é muito importante e vai nos ajudar a calcular o tamanho da String de forma manual.
+
+
+### MANEIRA MANUAL
+
+~~~c
+#include <stdio.h>
+
+int main() {
+
+  char name[10] = "Eduardo"; // 7 char
+  int index, size = 0;
+
+  for(index = 0; name[index] != '\0'; index++){
+    printf("%c ", name[index]);
+    size++;
+  }
+  
+  printf("\nsize: %d", size);
+  printf("\n");
+  return 0;
+}
+~~~
+
+Saída:
+~~~sh
+E d u a r d o 
+size: 7
+~~~
+
+O tamanho máximo suportado por `name` é 10, contudo, o conteúdo `Eduardo` tem 7 caracteres. Logo, criamos uma variável que conta a cada loop dentro da estrutura de repetição até que é encontrado o valor `\0` que obviamente sinaliza o final da cadeia de caracteres.
+
+
+### STRLEN()
+
+A função `strlen()` está inclusa na biblioteca `<string.h>` sendo necessário inclui-lá no seu programa. A função calcula o tamanho da string apontada, excluindo o caractere null byte `\0` 
+
+~~~c
+#include <stdio.h>
+#include <string.h> // work with Strings
+~~~
+
+Exemplo usando a função `strlen()`:
+
+~~~c
+#include <stdio.h>
+#include <string.h> // work with Strings
+
+int main() {
+
+  char name[10] = "Eduardo";
+  
+  int size = strlen(name);
+
+  printf("%d", size);
+  printf("\n");
+  return 0;
+}
+~~~
+
+Saída:
+~~~sh
+7
+~~~
+
+## STRCAT() - COMO CONCATENAR DUAS STRINGS
+
+~~~c
+#include <stdio.h>
+#include <string.h> // work with Strings
+
+int main() {
+
+  char words[50] = "Hi";
+  
+  strcat(words, ", how r u?");
+  
+  printf("%s", words);
+  printf("\n");
+  return 0;
+}
+~~~
+
+Saída:
+~~~sh
+Hi, how r u?
+~~~
+
+Outro exemplo usando outra String seria:
+
+~~~c
+char words[50] = "Hi";
+char words2[50] = ", how r u?";
+strcat(words, words2);  
+printf("%s", words);
+~~~
+
+Sempre o primeiro parâmetro recebera o valor concatenado, o segundo parâmetro continua com seu conteúdo original.
+
+Saída de `words`: `Hi, how r u?` <br>
+Saída de `words2`: `, how r u?` <br>
