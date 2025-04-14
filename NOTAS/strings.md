@@ -199,3 +199,166 @@ Sempre o primeiro parâmetro recebera o valor concatenado, o segundo parâmetro 
 
 Saída de `words`: `Hi, how r u?` <br>
 Saída de `words2`: `, how r u?` <br>
+
+
+## STRCMP() - COMO COMPARAR DUAS STRINGS
+
+
+A função pertence a biblioteca `string.h` e recebe dois parâmetros: as duas strings que vão ser comparadas. O retorno dessa função é um número inteiro.
+
+~~~c
+int result = strcmp(string1, string2);
+~~~
+
+  1. Se as *strings* forem iguais é retornado 0;
+  2. Se a primeira *string* for menor que a segunda *string* então o resultado é negativo;
+  3. Se a primeira *string* for maior que a segunda *string* então o resultado é positivo
+
+~~~c
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char word1[10] = "a";
+    char word2[10] = "b";
+
+    printf("result: %d", strcmp(word1, word2));
+
+    printf("\n");
+    return 0;
+}
+~~~
+
+Saída:
+~~~sh
+result: -1
+~~~
+
+  tome como base o alfabeto, as primeiras letras são valores "menores" que as letras seguintes.
+
+
+## STRCPY() - COMO COPIAR O VALOR DE UM STRING
+
+Existem uma forma manual de copiar o valor de um String que seria percorrer ela através uma estrutura de repetição e nesse momento ir atribuindo os valores encontrados para outra String até encontrar o valor `\0` (que sinaliza o final dessa String)
+
+Contudo a biblioteca `string.h` disponibiliza a função `strcpy()`. A função recebe dois parâmetros: a string de destino e a string de origem:
+
+~~~c
+strcpy(string_destino, string_origem);
+~~~
+
+Exemplo prático:
+
+~~~c
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char word1[10] = "a";
+    char word2[10] = "b";
+
+    printf("word 1: %s\nword 2: %s", word1, word2);
+    printf("\n\n");
+    strcpy(word2, word1);
+    printf("word 1: %s\nword 2: %s", word1, word2);
+
+    printf("\n");
+    return 0;
+}
+~~~
+
+Saída:
+
+~~~sh
+word 1: a
+word 2: b
+
+word 1: a
+word 2: a
+~~~
+
+## STRCHR() e STRRCHR() - PROCURANDO CARACTERES EM UMA STRING
+
+
+A função `strchr()` retorna um ponteiro para a primeira ocorrência. Enquanto que a função `strrchr()` retorna um ponteiro para a ultima ocorrência. 
+
+Exemplo usando o `strchr()`:
+
+~~~c
+char *letra;
+letra = strchr(vetor_de_caracteres, caractere desejado);
+~~~
+
+~~~c
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char name[50] = "Eduardo Araujo Da Silva";
+    char *letra; // vai armazenar um ponteiro para um caractere
+
+    letra = strchr(name, 'a'); // primeira ocorrência
+
+    printf("%c", *letra);
+    printf("\n");
+    return 0;
+}
+~~~
+
+Exemplo usando o `strrchr()`:
+
+~~~c
+char *letra;
+letra = strrchr(vetor_de_caracteres, caractere desejado);
+~~~
+
+~~~c
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char name[50] = "Eduardo Araujo Da Silva";
+    char *letra; // vai armazenar um ponteiro para um caractere
+
+    letra = strrchr(name, 'a'); // última ocorrência
+
+    printf("%c", *letra);
+    printf("\n");
+    return 0;
+}
+~~~
+
+## STRSTR() - ENCONTRAR UM SUBSTRING DENTRO DE UMA STRING
+
+
+A função `strstr()` está presente na biblioteca `string.h`, e ela recebe dois parâmetros: onde você busca e o conteúdo que você quer encontrar.
+
+~~~c
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+
+    char fullname[50] = "Eduardo Araujo Da Silva";
+    char middlename[] = "Araujo";
+    char *pointer;
+
+    pointer = strstr(fullname, middlename);
+
+    if(pointer){ // check if pointer is null
+        printf("%c", *pointer);
+    }else{
+        printf("\nnull pointer\n");
+    }
+    
+    printf("\n");
+    return 0;
+}
+~~~
+
+saida:
+
+~~~sh
+A
+~~~
+
