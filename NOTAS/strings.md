@@ -362,3 +362,75 @@ saida:
 A
 ~~~
 
+## strupr() e strlwr() - CONVERTER PARA MAIÚSCULO OU MINUSCULO
+
+A função  strupr() converte todos os caracteres para maiúsculo enquanto a função strlwr() converte todos os caracteres para minúsculo.
+
+~~~c
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+
+    char mywords[50] = "Good morning Sunshine";
+
+    strupr(mywords);
+    printf("Uppercase: %s", mywords);
+    strlwr(mywords);
+    printf("Lowercase: %s", mywords);
+    
+    printf("\n");
+    return 0;
+}
+~~~
+
+ATENÇÃO: essas funções não funcionam no Linux. Para usar no Linux use as funções **toupper e tolower** que são importadas da lib `ctype.h`
+
+~~~c
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+void toUpper(char source[], char dest[]){
+    int index = 0;
+
+    while (source[index] != '\0'){
+        dest[index] = toupper(source[index]);
+        index++;
+    }
+    dest[index] = '\0';
+}
+
+void toLower(char source[], char dest[]){
+    int index = 0;
+
+    while (source[index] != '\0'){
+        dest[index] = tolower(source[index]);
+        index++;
+    }
+    dest[index] = '\0';
+}
+
+int main(){
+
+    char mywords[50] = "Good morning Sunshine";
+    char mywords_in_upper[50];
+    char mywords_in_lower[50];
+
+    toUpper(mywords, mywords_in_upper);
+    toLower(mywords, mywords_in_lower);
+
+    printf("Normal: %s", mywords);
+    printf("\nUppercase: %s", mywords_in_upper);
+    printf("\nLowercase: %s", mywords_in_lower);
+    
+    printf("\n");
+    return 0;
+}
+~~~
+
+
+
+
+
+
