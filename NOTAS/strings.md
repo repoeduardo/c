@@ -96,6 +96,12 @@ fgets(country, 51, stdin); // parâmetros: variavel,tamanho,stdin
 ~~~
 
 
+## MATRIZ DE STRINGS
+
+
+
+
+
 ## IDENTIFICAR O TAMANHO DE UM STRING
 
 O objetivo é identificar a quantidade de caracteres que um String possui. Quando é definido um vetor de caracteres como esse: `char name[25];` o último caractere sempre será `\0` isso é muito importante e vai nos ajudar a calcular o tamanho da String de forma manual.
@@ -384,7 +390,9 @@ int main(){
 }
 ~~~
 
-ATENÇÃO: essas funções não funcionam no Linux. Para usar no Linux use as funções **toupper e tolower** que são importadas da lib `ctype.h`
+ATENÇÃO: essas funções não funcionam no Linux porque não fazem parte da biblioteca padrão do C. Para usar no Linux use as funções **toupper e tolower** que são importadas da lib `ctype.h`
+
+Essas funções convertem um caracter por vez, então você precisa percorrer o vetor de char[] e ir atribuindo a conversão para outro vetor de char[]. No final, atribua o '\0' para indicar o final do vetor de char[]
 
 ~~~c
 #include <stdio.h>
@@ -430,7 +438,33 @@ int main(){
 ~~~
 
 
+## strtok() - COMO DIVIDIR STRINGS
 
 
+A idéia por trás dessa função é dividir a String em tokens, que na prática seria dividir palavras. Sintaxe: `strtok(string, padrao)` <br>
+
+É necessária usar um ponteiro para armazenar o token retornado, em seguida use um loop para acessar os próximos tokens.
+
+~~~c
+#include <stdio.h>
+#include <string.h>
 
 
+int main(){
+
+    char mywords[50] = "Good morning Sunshine";
+    char *pointer;
+
+    pointer = strtok(mywords, " ");
+
+    while (pointer){
+        printf("Token: %s", pointer);
+        pointer = strtok(NULL, " "); // NULL diz pra continuar de onde ela parou, e não do inicio da String
+    }
+    
+    printf("\n");
+    return 0;
+}
+~~~
+
+Detalhe importante: a função strtok() "destrói" a string que foi passada, ou seja, se quisermos imprimir a string original logo após utilizar strtok(), ela só vai imprimir o primeiro token.
